@@ -94,7 +94,7 @@ const studentSchema = new Schema<TStudent, StudentModel>(
       },
       required: true,
     }, // Enum type for gender
-    dateOfBirth: { type: String },
+    dateOfBirth: { type: Date },
     // email: { type: String, required: true },
     email: {
       type: String,
@@ -119,6 +119,10 @@ const studentSchema = new Schema<TStudent, StudentModel>(
       required: true,
     }, // Using the previously defined localGuardianSchema
     profileImg: { type: String },
+    admissionSemester: {
+      type: Schema.Types.ObjectId,
+      ref: 'AcademicSemester',
+    },
 
     isDeleted: { type: Boolean, default: false },
   },
